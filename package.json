@@ -1,27 +1,14 @@
 {
-  "name": "src",
-  "version": "0.1.0",
-  "bin": {
-    "src": "bin/src.js"
-  },
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
-  },
-  "devDependencies": {
-    "@aws-cdk/assert": "1.27.0",
-    "@types/jest": "^24.0.22",
-    "@types/node": "10.17.5",
-    "jest": "^24.9.0",
-    "ts-jest": "^24.1.0",
-    "aws-cdk": "1.27.0",
-    "ts-node": "^8.1.0",
-    "typescript": "~3.7.2"
-  },
+  "name": "healthalerter",
+  "version": "1.0.0",
+  "description": "get alerts on covid19 numbers",
+  "main": "helpers.js",
+  "author": "mewc",
+  "license": "MIT",
   "dependencies": {
-    "@aws-cdk/core": "1.27.0",
-    "source-map-support": "^0.5.16"
+    "aws-sdk": "^2.646.0",
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "moment": "^2.24.0"
   }
 }
