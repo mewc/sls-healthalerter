@@ -22,16 +22,18 @@ module.exports.covid19alerter = (event, context, callback) => {
   request(url)
     .then(({ data }) => {
       const figures = extractHealthData(data);
-      let date = new Date();
-      date = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`;
-      console.log(figures);
-      updateDb({ date, ...figures })
+      const date = new Date();
+      const formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}T${date.getHours()}`;
+      const dbData = { date: formattedDate, ...figures, timestamp: date.getMilliseconds() };
+      console.log({ 'dbdata': dbData });
+      updateDb(dbData)
         .then(r => {
-          console.log(r);
+          console.log({ 'updatedb': r });
         })
         .catch(err => {
-          console.log(err);
+          console.log({ 'err': err });
         })
+
       callback(null, figures);
     })
     .catch(callback);

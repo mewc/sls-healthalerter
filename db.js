@@ -10,7 +10,7 @@ const updateDb = (data) => {
         ReturnConsumedCapacity: "TOTAL"
     }
     return dynamo.put(params, (r) => {
-        console.log(r);
+        console.log({ dbput: r });
     }).promise();
 }
 

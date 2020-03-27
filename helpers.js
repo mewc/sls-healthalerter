@@ -40,11 +40,9 @@ const extractGeneralInfo = ($) => {
     let data = defaultData;
     let rowData = $('.au-callout');
     rowData = rowData.slice(0, rowData.length);
-    // console.log(Object.keys(rowData), rowData.length);
     Object.values(rowData).map((item, index) => {
         const { children } = item;
         if (!children || children.length - 1 === 0) return
-        // console.log('v', Object.keys(children), children.length);
         let info = [];
         children.forEach(e => {
             if (!e.data) {
@@ -58,7 +56,6 @@ const extractGeneralInfo = ($) => {
                 //aus
                 const t = Number.parseInt(info[1].split(' ')[0].replace(/\D/g, ''));
                 const n = Number.parseInt(info[2].split(' ')[6].replace(/\D/g, ''));
-                // console.log('str', Object.values(info).map((x, i) => ({ [i]: x.split(' ') })));
                 data.aus.total = t;
                 data.aus.new = n;
                 break;
